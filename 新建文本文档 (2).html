@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Error Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f8f8f8;
+      font-size: 14px;
+    }
+
+    .error-message {
+      color: red;
+      margin-top: 10px;
+    }
+
+    .content {
+      display: none;
+      margin-top: 10px;
+    }
+    
+    .horror {
+      color: red;
+      font-weight: bold;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    
+    #timeout-image {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="error-message">Error</h1>
+  <div id="content" class="content">
+    <h2 class="horror">Herobrine</h2>
+    <p class="horror">He is gone lol.</p>
+  </div>
+  <img id="timeout-image" src="https://pic3.zhimg.com/v2-d52f91d71fa0d61993537ea59e65a782_1440w.jpg?source=172ae18b" alt="Timeout Image" onclick="quitWebsite()">
+
+  <script>
+    var clicked = false;
+    var clickCount = 0;
+
+    setTimeout(function() {
+      var content = document.getElementById("content");
+      var error = document.querySelector(".error-message");
+      error.style.display = "none";
+      content.style.display = "block";
+
+      setTimeout(function() {
+        var horrorText = document.querySelectorAll(".horror");
+        for(var i=0; i<horrorText.length; i++) {
+          horrorText[i].style.display = "block";
+        }
+
+        setTimeout(function() {
+          if(!clicked) {
+            var allText = document.querySelectorAll("body *:not(.horror)");
+            for(var i=0; i<allText.length; i++) {
+              allText[i].style.display = "none";
+            }
+
+            var timeoutImage = document.getElementById("timeout-image");
+            timeoutImage.style.display = "block";
+          }
+        }, 10000); // 过10秒显示超时图片
+
+      }, 5000); //过5秒显示Herobrine和He is gone
+
+    }, 5000); //过5秒延迟
+
+    function quitWebsite() {
+      clicked = true;
+      clickCount++;
+      
+      if(clickCount === 2) {
+        window.location.href = "https://pan.baidu.com/s/1gkjyY6tHtMrJWg1Xjw8f9w?pwd=mc11";
+      }
+    }
+    
+    document.addEventListener('keydown', function(event) {
+      if (event.key === '1') {
+        clickCount++;
+        
+        if (clickCount === 2) {
+          window.location.href = "https://pan.baidu.com/s/1gkjyY6tHtMrJWg1Xjw8f9w?pwd=mc11";
+        }
+      }
+      
+      if (event.key.toLowerCase() === 'l') {
+        var myWorldText = document.createElement('p');
+        myWorldText.textContent = 'I will kill you';
+        document.body.appendChild(myWorldText);
+      }
+    });
+  </script>
+</body>
+</html>
