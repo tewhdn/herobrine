@@ -110,7 +110,9 @@
     <script>
         let xf_text = ['remove herobrine', '欢迎来到我的网站','我认为pcl2是最好用的下载器','我的世界 启动','代码创造生活'] // 这里修改介绍文字 😜
         let now = new Date();
-        let xf_timer = Math.floor((now - new Date('2023/11/24')) / (1000 * 60 * 60 * 24)); // 计算建站天数
+        let start = new Date('2023/11/24');
+        let timeDiff = Math.abs(now.getTime() - start.getTime());
+        let xf_timer = Math.ceil(timeDiff / (1000 * 3600 * 24));
         let xf_off = 0 // 是否开启渐变背景动画 0 / 1 = 关闭 / 开启 【注意：开启后可能造成浏览器渲染卡顿】
     </script>
 </body>
